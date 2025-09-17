@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://yourdomain.com/assets/sitemap.xml
+
+# Disallow admin panel from search engines
+Disallow: /admin.html
+Disallow: /css/admin-styles.css
+Disallow: /js/admin-script.js
+
+# Allow all other content
+Allow: /index.html
+Allow: /css/styles.css
+Allow: /js/script.js
+Allow: /404.html
+Allow: /500.html

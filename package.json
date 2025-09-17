@@ -1,0 +1,68 @@
+{
+  "name": "renkli-dunya-anaokulu",
+  "version": "1.0.0",
+  "description": "Modern, responsive anaokulu web sitesi - Enterprise seviyesinde",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 3000 -o",
+    "build": "npm run minify && npm run optimize",
+    "minify": "npm run minify:css && npm run minify:js",
+    "minify:css": "npx clean-css-cli css/styles.css -o dist/css/styles.min.css && npx clean-css-cli css/admin-styles.css -o dist/css/admin-styles.min.css",
+    "minify:js": "npx terser js/script.js -o dist/js/script.min.js && npx terser js/admin-script.js -o dist/js/admin-script.min.js",
+    "optimize": "npm run optimize:images",
+    "optimize:images": "echo 'Image optimization would be implemented here'",
+    "test": "echo 'Tests would be implemented here'",
+    "lint": "npx eslint js/ --ext .js",
+    "lint:css": "npx stylelint css/*.css",
+    "validate": "npm run lint && npm run lint:css",
+    "deploy": "npm run build && echo 'Deployment would be implemented here'",
+    "dev": "npx live-server . --port=3000 --open=/index.html"
+  },
+  "keywords": [
+    "anaokulu",
+    "education",
+    "website",
+    "responsive",
+    "modern",
+    "turkish",
+    "admin-panel",
+    "enterprise"
+  ],
+  "author": {
+    "name": "Renkli Dünya Anaokulu",
+    "email": "info@renklidunya.com",
+    "url": "https://renklidunya.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KULLANICI_ADINIZ/anaokulu-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KULLANICI_ADINIZ/anaokulu-website/issues"
+  },
+  "homepage": "https://KULLANICI_ADINIZ.github.io/anaokulu-website",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "terser": "^5.19.4",
+    "eslint": "^8.57.0",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0",
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "config": {
+    "port": 3000,
+    "host": "localhost"
+  }
+}

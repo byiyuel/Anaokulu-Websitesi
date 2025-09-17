@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Renkli Dünya Anaokulu</title>
+    <link rel="stylesheet" href="css/admin-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <i class="fas fa-shield-alt"></i>
+                <h1>Admin Paneli</h1>
+                <p>Renkli Dünya Anaokulu</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="Kullanıcı Adı" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Şifre" required>
+                </div>
+                <button type="submit" class="btn btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Giriş Yap
+                </button>
+            </form>
+            <div class="login-info">
+                <p><strong>Demo Giriş Bilgileri:</strong></p>
+                <p>Kullanıcı Adı: <code>admin</code></p>
+                <p>Şifre: <code>admin123</code></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Password Setup Screen -->
+    <div id="passwordSetupScreen" class="password-setup-screen" style="display: none;">
+        <div class="password-setup-container">
+            <div class="password-setup-header">
+                <i class="fas fa-key"></i>
+                <h1>Güvenlik Ayarları</h1>
+                <p>İlk kez giriş yapıyorsunuz. Lütfen yeni kullanıcı adı ve şifre belirleyin.</p>
+            </div>
+            <form id="passwordSetupForm" class="password-setup-form">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="newUsername" placeholder="Yeni Kullanıcı Adı" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="newPassword" placeholder="Yeni Şifre" required minlength="6">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="confirmPassword" placeholder="Şifreyi Tekrar Girin" required>
+                </div>
+                <div class="password-requirements">
+                    <h4>Şifre Gereksinimleri:</h4>
+                    <ul>
+                        <li id="req-length">En az 6 karakter</li>
+                        <li id="req-match">Şifreler eşleşmeli</li>
+                        <li id="req-username">Kullanıcı adı en az 3 karakter</li>
+                    </ul>
+                </div>
+                <button type="submit" class="btn btn-setup">
+                    <i class="fas fa-save"></i> Güvenlik Ayarlarını Kaydet
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="admin-dashboard" style="display: none;">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="admin-nav">
+                <div class="admin-logo">
+                    <i class="fas fa-child"></i>
+                    <span>Renkli Dünya Admin</span>
+                </div>
+                <div class="admin-actions">
+                    <button class="btn btn-secondary" onclick="goToMainSite()">
+                        <i class="fas fa-external-link-alt"></i> Ana Siteye Git
+                    </button>
+                    <button class="btn btn-warning" onclick="showChangePasswordForm()">
+                        <i class="fas fa-key"></i> Şifre Değiştir
+                    </button>
+                    <button class="btn btn-danger" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Çıkış
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-container">
+                <!-- Dashboard Stats -->
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalActivities">0</h3>
+                            <p>Toplam Etkinlik</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalBlogs">0</h3>
+                            <p>Toplam Blog Yazısı</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalMessages">0</h3>
+                            <p>İletişim Mesajları</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalViews">1,234</h3>
+                            <p>Toplam Görüntülenme</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h2>Hızlı İşlemler</h2>
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="showAddActivityForm()">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>Yeni Etkinlik Ekle</span>
+                        </button>
+                        <button class="action-btn" onclick="showAddBlogForm()">
+                            <i class="fas fa-edit"></i>
+                            <span>Yeni Blog Yazısı Ekle</span>
+                        </button>
+                        <button class="action-btn" onclick="showManageActivities()">
+                            <i class="fas fa-list"></i>
+                            <span>Etkinlikleri Yönet</span>
+                        </button>
+                        <button class="action-btn" onclick="showManageBlogs()">
+                            <i class="fas fa-newspaper"></i>
+                            <span>Blog Yazılarını Yönet</span>
+                        </button>
+                        <button class="action-btn" onclick="showManageMessages()">
+                            <i class="fas fa-envelope"></i>
+                            <span>İletişim Mesajlarını Yönet</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Content Management -->
+                <div class="content-management">
+                    <!-- Activities Management -->
+                    <div id="activitiesManagement" class="management-section">
+                        <div class="section-header">
+                            <h2><i class="fas fa-calendar-alt"></i> Etkinlik Yönetimi</h2>
+                            <button class="btn btn-primary" onclick="showAddActivityForm()">
+                                <i class="fas fa-plus"></i> Yeni Etkinlik
+                            </button>
+                        </div>
+                        <div id="activitiesList" class="content-list">
+                            <!-- Etkinlikler buraya yüklenecek -->
+                        </div>
+                    </div>
+
+                    <!-- Blog Management -->
+                    <div id="blogManagement" class="management-section">
+                        <div class="section-header">
+                            <h2><i class="fas fa-blog"></i> Blog Yönetimi</h2>
+                            <button class="btn btn-primary" onclick="showAddBlogForm()">
+                                <i class="fas fa-plus"></i> Yeni Blog Yazısı
+                            </button>
+                        </div>
+                        <div id="blogList" class="content-list">
+                            <!-- Blog yazıları buraya yüklenecek -->
+                        </div>
+                    </div>
+
+                    <!-- Contact Messages Management -->
+                    <div id="messagesManagement" class="management-section">
+                        <div class="section-header">
+                            <h2><i class="fas fa-envelope"></i> İletişim Mesajları</h2>
+                            <div class="message-filters">
+                                <button class="btn btn-secondary btn-sm" onclick="filterMessages('all')">
+                                    <i class="fas fa-list"></i> Tümü
+                                </button>
+                                <button class="btn btn-warning btn-sm" onclick="filterMessages('unread')">
+                                    <i class="fas fa-envelope"></i> Okunmamış
+                                </button>
+                                <button class="btn btn-success btn-sm" onclick="filterMessages('read')">
+                                    <i class="fas fa-envelope-open"></i> Okunmuş
+                                </button>
+                            </div>
+                        </div>
+                        <div id="messagesList" class="content-list">
+                            <!-- İletişim mesajları buraya yüklenecek -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Activity Modal -->
+    <div id="addActivityModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-calendar-plus"></i> Yeni Etkinlik Ekle</h2>
+                <span class="close" onclick="closeModal('addActivityModal')">&times;</span>
+            </div>
+            <form id="addActivityForm" class="modal-form">
+                <div class="form-group">
+                    <label for="activityTitle">Etkinlik Başlığı *</label>
+                    <input type="text" id="activityTitle" placeholder="Örn: Sanat Atölyesi" required>
+                </div>
+                <div class="form-group">
+                    <label for="activityDate">Tarih *</label>
+                    <input type="date" id="activityDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="activityTime">Saat</label>
+                    <input type="time" id="activityTime">
+                </div>
+                <div class="form-group">
+                    <label for="activityLocation">Konum *</label>
+                    <input type="text" id="activityLocation" placeholder="Örn: Anaokulu Sanat Sınıfı" required>
+                </div>
+                <div class="form-group">
+                    <label for="activityDescription">Açıklama *</label>
+                    <textarea id="activityDescription" placeholder="Etkinlik hakkında detaylı bilgi..." rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="activityImage">Resim URL'si</label>
+                    <input type="url" id="activityImage" placeholder="https://example.com/image.jpg">
+                </div>
+                <div class="form-group">
+                    <label for="activityCapacity">Katılımcı Sayısı</label>
+                    <input type="number" id="activityCapacity" placeholder="Örn: 20" min="1">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addActivityModal')">İptal</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Etkinlik Ekle
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Blog Modal -->
+    <div id="addBlogModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-edit"></i> Yeni Blog Yazısı Ekle</h2>
+                <span class="close" onclick="closeModal('addBlogModal')">&times;</span>
+            </div>
+            <form id="addBlogForm" class="modal-form">
+                <div class="form-group">
+                    <label for="blogTitle">Blog Başlığı *</label>
+                    <input type="text" id="blogTitle" placeholder="Örn: Çocuk Gelişiminde Sanatın Önemi" required>
+                </div>
+                <div class="form-group">
+                    <label for="blogAuthor">Yazar *</label>
+                    <input type="text" id="blogAuthor" placeholder="Örn: Uzman Psikolog Ayşe Yılmaz" required>
+                </div>
+                <div class="form-group">
+                    <label for="blogCategory">Kategori</label>
+                    <select id="blogCategory">
+                        <option value="">Kategori Seçin</option>
+                        <option value="egitim">Eğitim</option>
+                        <option value="gelisim">Gelişim</option>
+                        <option value="etkinlik">Etkinlik</option>
+                        <option value="saglik">Sağlık</option>
+                        <option value="diger">Diğer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="blogContent">İçerik *</label>
+                    <textarea id="blogContent" placeholder="Blog yazısının içeriği..." rows="8" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="blogImage">Resim URL'si</label>
+                    <input type="url" id="blogImage" placeholder="https://example.com/image.jpg">
+                </div>
+                <div class="form-group">
+                    <label for="blogTags">Etiketler (virgülle ayırın)</label>
+                    <input type="text" id="blogTags" placeholder="Örn: çocuk gelişimi, sanat, eğitim">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addBlogModal')">İptal</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Blog Yazısı Ekle
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Activity Modal -->
+    <div id="editActivityModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-edit"></i> Etkinlik Düzenle</h2>
+                <span class="close" onclick="closeModal('editActivityModal')">&times;</span>
+            </div>
+            <form id="editActivityForm" class="modal-form">
+                <input type="hidden" id="editActivityId">
+                <div class="form-group">
+                    <label for="editActivityTitle">Etkinlik Başlığı *</label>
+                    <input type="text" id="editActivityTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="editActivityDate">Tarih *</label>
+                    <input type="date" id="editActivityDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="editActivityTime">Saat</label>
+                    <input type="time" id="editActivityTime">
+                </div>
+                <div class="form-group">
+                    <label for="editActivityLocation">Konum *</label>
+                    <input type="text" id="editActivityLocation" required>
+                </div>
+                <div class="form-group">
+                    <label for="editActivityDescription">Açıklama *</label>
+                    <textarea id="editActivityDescription" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="editActivityImage">Resim URL'si</label>
+                    <input type="url" id="editActivityImage">
+                </div>
+                <div class="form-group">
+                    <label for="editActivityCapacity">Katılımcı Sayısı</label>
+                    <input type="number" id="editActivityCapacity" min="1">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('editActivityModal')">İptal</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Değişiklikleri Kaydet
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div id="changePasswordModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-key"></i> Şifre Değiştir</h2>
+                <span class="close" onclick="closeModal('changePasswordModal')">&times;</span>
+            </div>
+            <form id="changePasswordForm" class="modal-form">
+                <div class="form-group">
+                    <label for="currentPassword">Mevcut Şifre *</label>
+                    <input type="password" id="currentPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="newPasswordChange">Yeni Şifre *</label>
+                    <input type="password" id="newPasswordChange" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="confirmNewPassword">Yeni Şifreyi Tekrar Girin *</label>
+                    <input type="password" id="confirmNewPassword" required>
+                </div>
+                <div class="password-strength">
+                    <div class="strength-bar">
+                        <div class="strength-fill" id="strengthFill"></div>
+                    </div>
+                    <div class="strength-text" id="strengthText">Şifre gücü</div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('changePasswordModal')">İptal</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Şifreyi Değiştir
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Blog Modal -->
+    <div id="editBlogModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-edit"></i> Blog Yazısı Düzenle</h2>
+                <span class="close" onclick="closeModal('editBlogModal')">&times;</span>
+            </div>
+            <form id="editBlogForm" class="modal-form">
+                <input type="hidden" id="editBlogId">
+                <div class="form-group">
+                    <label for="editBlogTitle">Blog Başlığı *</label>
+                    <input type="text" id="editBlogTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="editBlogAuthor">Yazar *</label>
+                    <input type="text" id="editBlogAuthor" required>
+                </div>
+                <div class="form-group">
+                    <label for="editBlogCategory">Kategori</label>
+                    <select id="editBlogCategory">
+                        <option value="">Kategori Seçin</option>
+                        <option value="egitim">Eğitim</option>
+                        <option value="gelisim">Gelişim</option>
+                        <option value="etkinlik">Etkinlik</option>
+                        <option value="saglik">Sağlık</option>
+                        <option value="diger">Diğer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="editBlogContent">İçerik *</label>
+                    <textarea id="editBlogContent" rows="8" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="editBlogImage">Resim URL'si</label>
+                    <input type="url" id="editBlogImage">
+                </div>
+                <div class="form-group">
+                    <label for="editBlogTags">Etiketler (virgülle ayırın)</label>
+                    <input type="text" id="editBlogTags">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('editBlogModal')">İptal</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Değişiklikleri Kaydet
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Enterprise Utilities -->
+    <script type="module" src="config/app.config.js"></script>
+    <script type="module" src="js/utils/logger.js"></script>
+    <script type="module" src="js/utils/security.js"></script>
+    <script type="module" src="js/utils/performance.js"></script>
+    <script type="module" src="js/utils/analytics.js"></script>
+    <script type="module" src="js/utils/accessibility.js"></script>
+    <script type="module" src="js/utils/errorReporting.js"></script>
+    <script type="module" src="js/admin-script.js"></script>
+</body>
+</html>

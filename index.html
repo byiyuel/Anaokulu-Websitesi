@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renkli Dünya Anaokulu</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="assets/manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Renkli Dünya">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Renkli Dünya Anaokulu - Çocukların hayal dünyasını keşfetmelerine yardımcı oluyoruz. Modern eğitim, sanat atölyeleri ve uzman kadro ile çocuklarınızın geleceğini şekillendiriyoruz.">
+    <meta name="keywords" content="anaokulu, çocuk eğitimi, kreş, okul öncesi eğitim, sanat atölyesi, çocuk gelişimi, İstanbul anaokulu">
+    <meta name="author" content="Renkli Dünya Anaokulu">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Renkli Dünya Anaokulu">
+    <meta property="og:description" content="Çocukların hayal dünyasını keşfetmelerine yardımcı oluyoruz">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:image" content="https://yourdomain.com/og-image.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Renkli Dünya Anaokulu">
+    <meta name="twitter:description" content="Çocukların hayal dünyasını keşfetmelerine yardımcı oluyoruz">
+    <meta name="twitter:image" content="https://yourdomain.com/og-image.jpg">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Ana navigasyon">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-child" aria-hidden="true"></i>
+                    <span>Renkli Dünya</span>
+                </div>
+                <ul class="nav-menu" role="menubar">
+                    <li role="none"><a href="#home" class="nav-link" role="menuitem">Ana Sayfa</a></li>
+                    <li role="none"><a href="#about" class="nav-link" role="menuitem">Hakkımızda</a></li>
+                    <li role="none"><a href="#activities" class="nav-link" role="menuitem">Etkinlikler</a></li>
+                    <li role="none"><a href="#blog" class="nav-link" role="menuitem">Blog</a></li>
+                    <li role="none"><a href="#contact" class="nav-link" role="menuitem">İletişim</a></li>
+                    <li role="none"><a href="admin.html" class="nav-link admin-link" target="_blank" role="menuitem">
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i> Admin
+                    </a></li>
+                </ul>
+                <button class="hamburger" aria-label="Menüyü aç/kapat" aria-expanded="false" aria-controls="nav-menu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Renkli Dünya Anaokulu</h1>
+            <p>Çocuklarımızın hayal dünyasını keşfetmelerine yardımcı oluyoruz</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('about')">Keşfet</button>
+                <button class="btn btn-secondary" onclick="scrollToSection('contact')">İletişim</button>
+            </div>
+        </div>
+        <div class="hero-animation">
+            <div class="floating-shapes">
+                <div class="shape shape-1">🌟</div>
+                <div class="shape shape-2">🎈</div>
+                <div class="shape shape-3">🎨</div>
+                <div class="shape shape-4">🎪</div>
+                <div class="shape shape-5">🌈</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Hakkımızda</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Renkli Dünya Anaokulu olarak, çocuklarımızın gelişimini destekleyen, yaratıcılıklarını ortaya çıkaran ve eğlenceli bir öğrenme ortamı sunuyoruz.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-heart"></i>
+                            <h3>Sevgi Dolu Ortam</h3>
+                            <p>Her çocuğa özel ilgi ve sevgi</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-palette"></i>
+                            <h3>Yaratıcı Eğitim</h3>
+                            <p>Sanat ve yaratıcılık odaklı programlar</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-users"></i>
+                            <h3>Uzman Kadro</h3>
+                            <p>Deneyimli ve eğitimli öğretmenler</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-child"></i>
+                        <p>Çocuklarımızın mutlu anları</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="activities">
+        <div class="container">
+            <h2>Etkinliklerimiz</h2>
+            <div class="activities-controls">
+                <p class="admin-notice">
+                    <i class="fas fa-info-circle"></i> 
+                    Etkinlik eklemek için <a href="admin.html" target="_blank">Admin Paneli</a>'ni kullanın.
+                </p>
+            </div>
+            <div id="activities-grid" class="activities-grid">
+                <!-- Etkinlikler buraya dinamik olarak eklenecek -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2>Blog</h2>
+            <div class="blog-controls">
+                <p class="admin-notice">
+                    <i class="fas fa-info-circle"></i> 
+                    Blog yazısı eklemek için <a href="admin.html" target="_blank">Admin Paneli</a>'ni kullanın.
+                </p>
+            </div>
+            <div id="blog-grid" class="blog-grid">
+                <!-- Blog yazıları buraya dinamik olarak eklenecek -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>İletişim</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Adres</h3>
+                            <p>Örnek Mahallesi, Çocuk Sokak No:123<br>İstanbul, Türkiye</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Telefon</h3>
+                            <p>+90 (212) 555 0123</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>E-posta</h3>
+                            <p>info@renklidunya.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm" role="form" aria-label="İletişim formu">
+                        <div class="form-group">
+                            <label for="contact-name" class="sr-only">Adınız</label>
+                            <input type="text" id="contact-name" placeholder="Adınız" required aria-label="Adınız" aria-describedby="name-help">
+                            <div id="name-help" class="sr-only">Lütfen adınızı girin</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email" class="sr-only">E-posta</label>
+                            <input type="email" id="contact-email" placeholder="E-posta" required aria-label="E-posta adresiniz" aria-describedby="email-help">
+                            <div id="email-help" class="sr-only">Geçerli bir e-posta adresi girin</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message" class="sr-only">Mesajınız</label>
+                            <textarea id="contact-message" placeholder="Mesajınız" rows="5" required aria-label="Mesajınız" aria-describedby="message-help"></textarea>
+                            <div id="message-help" class="sr-only">Mesajınızı yazın</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" aria-describedby="submit-help">Gönder</button>
+                        <div id="submit-help" class="sr-only">Formu göndermek için bu butona tıklayın</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Renkli Dünya Anaokulu</h3>
+                    <p>Çocuklarımızın geleceğini şekillendiriyoruz</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Hızlı Linkler</h3>
+                    <ul>
+                        <li><a href="#home">Ana Sayfa</a></li>
+                        <li><a href="#about">Hakkımızda</a></li>
+                        <li><a href="#activities">Etkinlikler</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Sosyal Medya</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Renkli Dünya Anaokulu. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+    </main>
+
+
+    <!-- Enterprise Utilities -->
+    <script type="module" src="config/app.config.js"></script>
+    <script type="module" src="js/utils/logger.js"></script>
+    <script type="module" src="js/utils/security.js"></script>
+    <script type="module" src="js/utils/performance.js"></script>
+    <script type="module" src="js/utils/analytics.js"></script>
+    <script type="module" src="js/utils/accessibility.js"></script>
+    <script type="module" src="js/utils/errorReporting.js"></script>
+    <script type="module" src="js/script.js"></script>
+</body>
+</html>
