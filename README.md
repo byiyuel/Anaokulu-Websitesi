@@ -1,11 +1,11 @@
 # 🌈 Renkli Dünya Anaokulu Web Sitesi
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/KULLANICI_ADINIZ/anaokulu-website)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/byiyuel/anaokulu-website)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/node.js-%3E%3D14.0.0-brightgreen.svg)](https://nodejs.org/)
 [![Enterprise Ready](https://img.shields.io/badge/enterprise-ready-✅-success.svg)]()
 
-Modern, eğlenceli ve işlevsel anaokulu web sitesi. Çocukların hayal dünyasını yansıtan renkli tasarım ve profesyonel admin paneli ile donatılmıştır. **Enterprise seviyesinde güvenlik, performans ve ölçeklenebilirlik ile GitHub'a hazır!**
+Modern, eğlenceli ve işlevsel anaokulu web sitesi. Çocukların hayal dünyasını yansıtan renkli tasarım ve profesyonel admin paneli ile donatılmıştır. **Enterprise seviyesinde güvenlik, performans ve ölçeklenebilirlik!**
 
 ## 📁 Enterprise Proje Yapısı
 
@@ -56,7 +56,7 @@ anaokulu-website/
 
 ```bash
 # Repository'yi klonlayın
-git clone https://github.com/KULLANICI_ADINIZ/anaokulu-website.git
+git clone https://github.com/byiyuel/anaokulu-website.git
 cd anaokulu-website
 
 # Bağımlılıkları yükleyin
@@ -205,22 +205,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 İletişim
 
-**Renkli Dünya Anaokulu**
-- 📧 E-posta: info@renklidunya.com
-- 📱 Telefon: +90 (212) 555 0123
-- 🌐 Website: https://renklidunya.com
-- 📍 Adres: Örnek Mahallesi, Çocuk Sokak No:123, İstanbul, Türkiye
-
 ### 🐛 **Bug Reports**
 - GitHub Issues: [Report a bug](https://github.com/byiyuel/anaokulu-website/issues)
-- Email: bugs@renklidunya.com
 
 ### 💡 **Feature Requests**
 - GitHub Discussions: [Request a feature](https://github.com/byiyuel/anaokulu-website/discussions)
-- Email: features@renklidunya.com
 
 ---
-
-**Renkli Dünya Anaokulu** - Çocuklarımızın geleceğini şekillendiriyoruz 🌟
 
 *Enterprise-ready, GitHub-optimized, and production-deployed!*
